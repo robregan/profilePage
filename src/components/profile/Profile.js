@@ -1,6 +1,5 @@
 import React from 'react'
 import styles from './Profile.module.css'
-import profile1 from '../../assets/profile1.png'
 import {
   AiOutlineGithub,
   AiOutlineGooglePlus,
@@ -37,7 +36,7 @@ const Profile = ({ image, name, job, company, link }) => {
             </div>
           </IconContext.Provider>
           <div className={styles.btn}>
-            <a href={link} target='_blank'>
+            <a href={link} target='_blank' rel='noreferrer'>
               View Profile
             </a>
           </div>
