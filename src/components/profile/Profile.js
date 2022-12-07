@@ -6,37 +6,44 @@ import {
   AiOutlineGooglePlus,
   AiOutlineTwitter,
 } from 'react-icons/ai'
-const Profile = () => {
-  return (
-    <div className={styles.profile}>
-      <img src={profile1} alt='profile' />
-      <div className={styles['profile-content']}>
-        <h3>My Profile</h3>
-        <div className={styles.text}>
-          <p>Name: </p>
-          <p>Adora Nwodo</p>
-        </div>
-        <div className={styles.text}>
-          <p>Job: </p>
-          <p>Cloud Engineer</p>
-        </div>
-        <div className={styles.text}>
-          <p>Company: </p>
-          <p>Microsoft</p>
-        </div>
+import { IconContext } from 'react-icons'
+import Card from '../UI/card/Card'
 
-        <div className={styles.icons}>
-          <AiOutlineTwitter color='#666' size={20} />
-          <AiOutlineGithub color='#666' size={20} />
-          <AiOutlineGooglePlus color='#666' size={20} />
-        </div>
-        <div className={styles.btn}>
-          <a href='#' target='_blank'>
-            View Profile
-          </a>
+const Profile = ({ image, name, job, company, link }) => {
+  return (
+    <Card>
+      <div className={styles.profile}>
+        <img src={image} alt='profile' />
+        <div className={styles['profile-content']}>
+          <h3>My Profile</h3>
+          <div className={styles.text}>
+            <p>Name: </p>
+            <p>{name}</p>
+          </div>
+          <div className={styles.text}>
+            <p>Job: </p>
+            <p>{job}</p>
+          </div>
+          <div className={styles.text}>
+            <p>Company: </p>
+            <p>{company}</p>
+          </div>
+
+          <IconContext.Provider value={{ color: '#666', size: '20px' }}>
+            <div className={styles.icons}>
+              <AiOutlineTwitter />
+              <AiOutlineGithub />
+              <AiOutlineGooglePlus />
+            </div>
+          </IconContext.Provider>
+          <div className={styles.btn}>
+            <a href={link} target='_blank'>
+              View Profile
+            </a>
+          </div>
         </div>
       </div>
-    </div>
+    </Card>
   )
 }
 
